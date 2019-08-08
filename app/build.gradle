@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.rescorcia.info.realm"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+
+        javaCompileOptions(){
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13-beta-3'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
+
+    // Realm
+    implementation 'io.realm:realm-android:0.87.5'
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    // CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+
+}
