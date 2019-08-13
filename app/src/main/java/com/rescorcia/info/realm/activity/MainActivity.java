@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             builder.setPositiveButton("Aceptar", null)
-                                    .setIcon(R.drawable.iconbook)
+                                    .setIcon(R.mipmap.ic_launcher)
                                     .setTitle("Información")
                                     .setMessage(
                                             "Versión: " + packageInfo.versionName ).show();

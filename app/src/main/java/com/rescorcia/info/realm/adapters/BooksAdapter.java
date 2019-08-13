@@ -77,6 +77,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Eliminar CardView...")
+                        .setIcon(R.mipmap.ic_launcher)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -133,6 +134,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setView(content)
+                        .setIcon(R.mipmap.ic_launcher)
                         .setTitle("Editar Libro")
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
