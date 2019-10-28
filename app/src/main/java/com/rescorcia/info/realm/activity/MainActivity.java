@@ -170,36 +170,36 @@ public class MainActivity extends AppCompatActivity {
         Book book = new Book();
         book.setId(1 + System.currentTimeMillis());
         book.setAuthor("Reto Meier");
-        book.setTitle("Android 4 Application Development");
-        book.setImageUrl("http://192.168.1.17/imagenes/code.png");
+        book.setTitle("Android Application Development");
+        book.setImageUrl("http://192.168.1.17:8012/imagenes/code.png");
         books.add(book);
 
         book = new Book();
         book.setId(2 + System.currentTimeMillis());
-        book.setAuthor("Itzik Ben-Gan");
-        book.setTitle("Microsoft SQL Server 2012 T-SQL Fundamentals");
-        book.setImageUrl("http://192.168.1.17/imagenes/librotres.png");
+        book.setAuthor("Itzik");
+        book.setTitle("T-SQL Fundamentals");
+        book.setImageUrl("http://192.168.1.17:8012/imagenes/librotres.png");
         books.add(book);
 
         book = new Book();
         book.setId(3 + System.currentTimeMillis());
-        book.setAuthor("Magnus Lie Hetland");
-        book.setTitle("Beginning Python: From Novice To Professional Paperback");
-        book.setImageUrl("http://192.168.1.17/imagenes/librodos.png");
+        book.setAuthor("Hetland");
+        book.setTitle("Python: From Novice To Professional");
+        book.setImageUrl("http://192.168.1.17:8012/imagenes/librodos.png");
         books.add(book);
 
         book = new Book();
         book.setId(4 + System.currentTimeMillis());
-        book.setAuthor("Chad Fowler");
-        book.setTitle("The Passionate Programmer: Creating a Remarkable Career in Software Development");
-        book.setImageUrl("http://192.168.1.17/imagenes/librouno.png");
+        book.setAuthor("Fowler");
+        book.setTitle("The Passionate Programmer");
+        book.setImageUrl("http://192.168.1.17:8012/imagenes/librouno.png");
         books.add(book);
 
         book = new Book();
         book.setId(5 + System.currentTimeMillis());
-        book.setAuthor("Yashavant Kanetkar");
-        book.setTitle("Written Test Questions In C Programming");
-        book.setImageUrl("http://192.168.1.17/imagenes/libroC.png");
+        book.setAuthor("Kanetkar");
+        book.setTitle("Questions In C Programming");
+        book.setImageUrl("http://192.168.1.17:8012/imagenes/libroC.png");
         books.add(book);
 
 
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             builder.setPositiveButton("Aceptar", null)
-                                    .setIcon(R.drawable.iconbook)
+                                    .setIcon(R.mipmap.ic_launcher)
                                     .setTitle("Información")
                                     .setMessage(
                                             "Versión: " + packageInfo.versionName ).show();

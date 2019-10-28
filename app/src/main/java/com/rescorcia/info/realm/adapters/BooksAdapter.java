@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import com.rescorcia.info.realm.R;
+import com.rescorcia.info.realm.activity.MainActivity;
 import com.rescorcia.info.realm.app.Prefs;
 import com.rescorcia.info.realm.app.RealmBackupRestore;
 import com.rescorcia.info.realm.model.Book;
@@ -74,25 +75,42 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
             @Override
             public boolean onLongClick(View v) {
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Eliminar CardView...")
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                RealmResults<Book> results = realm.where(Book.class).findAll();
-                // Get the book title to show it in toast message
-                Book b = results.get(position);
-                String title = b.getTitle();
+                                RealmResults<Book> results = realm.where(Book.class).findAll();
+                                // Get the book title to show it in toast message
+                                Book b = results.get(position);
+                                String title = b.getTitle();
 
-                // All changes to data must happen in a transaction
-                realm.beginTransaction();
+                                // All changes to data must happen in a transaction
+                                realm.beginTransaction();
 
-                // remove single match
-                results.remove(position);
-                realm.commitTransaction();
+                                // remove single match
+                                results.remove(position);
+                                realm.commitTransaction();
 
-                if (results.size() == 0) {
-                    Prefs.with(context).setPreLoad(false);
-                }
+                                if (results.size() == 0) {
+                                    Prefs.with(context).setPreLoad(false);
+                                }
 
-                notifyDataSetChanged();
-                Toast.makeText(context, title + " ha sido eliminado de la DB", Toast.LENGTH_SHORT).show();
+                                notifyDataSetChanged();
+                                Toast.makeText(context, title + " ha sido eliminado de la DB", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+
                 return false;
             }
         });
@@ -116,6 +134,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setView(content)
+                        .setIcon(R.mipmap.ic_launcher)
                         .setTitle("Editar Libro")
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
@@ -133,7 +152,6 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
                                 Toast.makeText(context, "Información Actualizada", Toast.LENGTH_SHORT).show();
 
                                 Log.e("DATOOS",results + "");
-
 
                             }
                         })
